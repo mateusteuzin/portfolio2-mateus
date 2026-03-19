@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 30% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 30% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 217 19% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 19% 27%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 217 19% 17%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 30% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 222 47% 4%;
+    --sidebar-accent: 217 19% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 190 100% 50%;
+
+    /* Custom tokens */
+    --cyan-glow: 190 100% 50%;
+    --surface: 222 30% 6%;
+    --surface-hover: 222 30% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .font-mono {
+    font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .shadow-layered {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.12);
+  }
+
+  .border-subtle {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .border-active {
+    border: 1px solid hsl(190 100% 50% / 0.5);
+  }
+
+  .surface-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
