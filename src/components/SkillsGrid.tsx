@@ -1,29 +1,31 @@
 import { motion } from "framer-motion";
-import { Database, BarChart3, FileSpreadsheet, Shield, MessageSquare } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 const skills = [
   {
     name: "SQL",
     description: "Queries complexas, CTEs, Window Functions, Modelagem de dados",
-    icon: Database,
+    iconUrl: "https://cdn.simpleicons.org/postgresql/4169E1",
     size: "large" as const,
   },
   {
     name: "Power BI",
     description: "DAX, Dashboards interativos, Modelagem dimensional, ETL",
-    icon: BarChart3,
+    // Link direto de alta disponibilidade para o Power BI
+    iconUrl: "https://img.icons8.com/color/96/power-bi.png",
     size: "large" as const,
   },
   {
     name: "Excel / VBA",
     description: "Power Query, Automação de relatórios, Análise avançada",
-    icon: FileSpreadsheet,
+    // Link direto de alta disponibilidade para o Excel
+    iconUrl: "https://img.icons8.com/color/96/microsoft-excel-2019.png",
     size: "medium" as const,
   },
   {
     name: "ITIL / COBIT",
     description: "Governança de TI, Gestão de serviços, Frameworks de controle",
-    icon: Shield,
+    iconUrl: "https://cdn.simpleicons.org/docsdotrs/002E3F",
     size: "medium" as const,
   },
   {
@@ -60,7 +62,6 @@ const SkillsGrid = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {skills.map((skill, i) => {
-            const Icon = skill.icon;
             return (
               <motion.div
                 key={skill.name}
@@ -75,11 +76,22 @@ const SkillsGrid = () => {
                 className={`${sizeClasses[skill.size]} surface-card border-subtle rounded-lg p-6 flex flex-col justify-between transition-all duration-200 hover:border-active group`}
               >
                 <div>
-                  <Icon
-                    size={20}
-                    strokeWidth={1.5}
-                    className="text-muted-foreground group-hover:text-primary transition-colors duration-200 mb-4"
-                  />
+                  <div className="mb-4 h-10 w-10 flex items-center">
+                    {skill.iconUrl ? (
+                      <img 
+                        src={skill.iconUrl} 
+                        alt={skill.name} 
+                        className="w-8 h-8 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" 
+                      />
+                    ) : skill.icon ? (
+                      <skill.icon
+                        size={24}
+                        strokeWidth={1.5}
+                        className="text-muted-foreground group-hover:text-primary transition-colors duration-200"
+                      />
+                    ) : null}
+                  </div>
+                  
                   <h3 className="font-mono text-sm font-semibold text-foreground">
                     {skill.name}
                   </h3>
